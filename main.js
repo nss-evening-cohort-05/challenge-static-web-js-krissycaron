@@ -26,11 +26,11 @@
 // Grow your tree
 
 
-
+var tree = {}
 
 var growTree = "";
 
-function treeMaker () {
+function treeMaker (tree) {
 	// The value for the height of the tree should be from user input in a <input type="text"> field in the DOM.
 	var treeHeight = document.getElementById("height");
 	// The character to use should be from user input in a <input type="text"> field in the DOM.
@@ -40,7 +40,7 @@ function treeMaker () {
 	for (var i=0; i < treeHeight.value; i++) 
 		// growTree += (treeHeight-(i+1)); not sure if this equation is in the correct spot
 	if (treeHeight.value -(i+1)){
-		growTree
+		growTree += " ";
 	} 
 
 
@@ -51,10 +51,10 @@ function treeMaker () {
 console.log(treeMaker[i=6]); //this is not defined in log, i cannot figure out how to define it. 
 
 //code from temp converter, to run funtion on click or enter key pressed
-convert.addEventListener("click", treeMaker);
-temp.addEventListener("keypress", function(e){
-	// console.log(e);
-	if (e.charCode === 13) {
-		treeMaker();
-	}
-});
+// convert.addEventListener("click", treeMaker);
+// temp.addEventListener("keypress", function(e){
+// 	// console.log(e);
+// 	if (e.charCode === 13) {
+// 		treeMaker();
+// 	}
+// });
