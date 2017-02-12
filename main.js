@@ -25,9 +25,30 @@
 
 // Grow your tree
 
-var treeHeight = document.getElementById "height";
-var	character = document.getElementById "character";
+
+
+// The value for the height of the tree should be from user input in a <input type="text"> field in the DOM.
+var treeHeight = document.getElementById("height");
+// The character to use should be from user input in a <input type="text"> field in the DOM.
+var	treeCharacter = document.getElementById("character"); 
+var growTree = "";
 
 function treeMaker () {
-	for (var i=0; i < height.value; i++)
+	// must run through a for loop to build the tree up
+	for (var i=0; i < treeHeight.value; i++) 
+		// growTree += (treeHeight-(i+1)); not sure if this equation is in the correct spot
+	if (treeHeight.value -(i+1)){
+		growTree
+	}
+	console.log(growTree);
 }
+
+
+//code from temp converter, to run funtion on click or enter key pressed
+convert.addEventListener("click", treeMaker);
+temp.addEventListener("keypress", function(e){
+	// console.log(e);
+	if (e.charCode === 13) {
+		treeMaker();
+	}
+});
