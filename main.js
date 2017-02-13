@@ -8,10 +8,6 @@
 //If you submit code that does not fulfill the requirements, you will be sent to your room with no dinner.
 
 // Create a tree function that should build a pine tree out of a character in the Chrome dev tools console.
-
-// It accepts a single object as an argument. The object should have two key/value pairs.
-
-// A key that specifies the height of the pine tree.
 // The value for the height of the tree should be from user input in a <input type="text"> field in the DOM.
 // A key that specifies which character to use to build the pine tree.
 // The character to use should be from user input in a <input type="text"> field in the DOM.
@@ -25,19 +21,10 @@
 
 // Grow your tree
 
-// The value for the height of the tree should be from user input in a <input type="text"> field in the DOM.
-	var treeHeight = document.getElementById("height");
-	// The character to use should be from user input in a <input type="text"> field in the DOM.
-	var	treeCharacter = document.getElementById("character"); 
 
 
-
-var myTree = {
-    height: 3,
-    char: '*'
-}
-
-var growTree = " ";
+// It accepts a single object as an argument. The object should have two key/value pairs.
+// A key that specifies the height of the pine tree.
 
 function treeMaker(tree) {
 	
@@ -45,28 +32,44 @@ function treeMaker(tree) {
 	for (var i=0; i < tree.height; i++) {
 		var chars = 2*i+1;
         var spaces = tree.height-(i+1);
-        console.log(' '.repeat(spaces) + '*'.repeat(chars));
+        console.log(' '.repeat(spaces) + tree.char.repeat(chars));
 	}
 }
 
+function clickFunction (){
+	// The value for the height of the tree should be from user input in a <input type="text"> field in the DOM.
+	var treeHeight = document.getElementById("height").value;
+	// The character to use should be from user input in a <input type="text"> field in the DOM.
+	var	treeCharacter = document.getElementById("character").value; 
+	//If you submit code that does not fulfill the requirements, you will be sent to your room with no dinner.
+	if (treeHeight = "") {
+		alert("Please enter a number here.")
+	}
+	else if (treeCharacter = "") {
+		alert("Please enter a character here.")
+	}
+}
+
+var myTree = {
+	height: "treeHeight",
+	character: "treeCharacter"
+}
+
+
 treeMaker(myTree);
 
-// convert.addEventListener("click", treeMaker);
-// temp.addEventListener("keypress", function(e){
-//     if (e.charCode === 13) {
-//         treeMaker();
-//     }
-// });
+document.getElementById("height").addEventListener("keypress", function(e){
+    if (e.charCode === 13) {
+       treeMaker();
+    }
+});
 
+document.getElementById("character").addEventListener("keypress", function(e){
+    if (e.charCode === 13) {
+       treeMaker();
+    }
+});
 
-		// growTree += (treeHeight-(i+1)); not sure if this equation is in the correct spot
-		 // 
+document.getElementById("growTree").addEventListener("click", treeMaker);
 
-//code from temp converter, to run funtion on click or enter key pressed
-// convert.addEventListener("click", treeMaker);
-// temp.addEventListener("keypress", function(e){
-// 	// console.log(e);
-// 	if (e.charCode === 13) {
-// 		treeMaker();
-// 	}
-// });
+		
