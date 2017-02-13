@@ -25,9 +25,17 @@
 
 // It accepts a single object as an argument. The object should have two key/value pairs.
 // A key that specifies the height of the pine tree.
+// The value for the height of the tree should be from user input in a <input type="text"> field in the DOM.
+	var treeHeight = document.getElementById('tweeHeight');
+	// The character to use should be from user input in a <input type="text"> field in the DOM.
+	var	treeCharacter = document.getElementById('tweeChar');
+	//If you submit code that does not fulfill the requirements, you will be sent to your room with no dinner.
+	
+
+
 
 function treeMaker(tree) {
-	
+	console.log(tree);
 	// must run through a for loop to build the tree up
 	for (var i=0; i < tree.height; i++) {
 		var chars = 2*i+1;
@@ -37,39 +45,35 @@ function treeMaker(tree) {
 }
 
 function clickFunction (){
-	// The value for the height of the tree should be from user input in a <input type="text"> field in the DOM.
-	var treeHeight = document.getElementById("height").value;
-	// The character to use should be from user input in a <input type="text"> field in the DOM.
-	var	treeCharacter = document.getElementById("character").value; 
-	//If you submit code that does not fulfill the requirements, you will be sent to your room with no dinner.
+	console.log(treeHeight, treeCharacter);
 	if (treeHeight = "") {
 		alert("Please enter a number here.")
 	}
 	else if (treeCharacter = "") {
 		alert("Please enter a character here.")
 	}
-}
-
 var myTree = {
-	height: "treeHeight",
-	character: "treeCharacter"
+	height: treeHeight.value,
+	character: treeCharacter.value
 }
-
 
 treeMaker(myTree);
+console.log("hello");
+}
 
-document.getElementById("height").addEventListener("keypress", function(e){
+
+document.getElementById("tweeHeight").addEventListener("keypress", function(e){
     if (e.charCode === 13) {
-       treeMaker();
+       clickFunction();
     }
 });
 
-document.getElementById("character").addEventListener("keypress", function(e){
+document.getElementById("tweeChar").addEventListener("keypress", function(e){
     if (e.charCode === 13) {
-       treeMaker();
+       clickFunction();
     }
 });
 
-document.getElementById("growTree").addEventListener("click", treeMaker);
+document.getElementById("growTree").addEventListener("click", clickFunction);
 
 		
